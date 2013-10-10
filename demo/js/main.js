@@ -1,19 +1,34 @@
 function hitTop() {
-  $("#information").append("Top!<br>");
+  $("#information").append("Top touched.<br>");
 }
 
 function hitBottom() {
-  $("#information").append("Bottom!<br>");
+  $("#information").append("Bottom touched.<br>");
 }
 
-function moving() {
-  $("#information").append("Moving!<br>");
+function endMoving() {
+  $("#information").append("Stopped moving.<br>");
+}
+
+function movingToTop() {
+  $("#information").append("Heading for top.<br>");
+}
+
+function movingToBottom() {
+  $("#information").append("Heading for bottom.<br>");
+}
+
+function startMoving() {
+  $("#information").append("Started moving.<br>");
 }
 
 $(document).ready(function() {
   $("#follow-me").follow({
-    topCallback: hitTop,
-    bottomCallback: hitBottom,
-    movingCallback: moving
+    topStart: movingToTop,
+    topEnd: hitTop,
+    bottomStart: movingToBottom,
+    bottomEnd: hitBottom,
+    movingStart: startMoving,
+    movingEnd: endMoving
   });
 });

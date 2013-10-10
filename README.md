@@ -52,4 +52,25 @@ Make sure to include the name of your container if you've named it something oth
     container: "my-container-name"
   });
 ```
+
+You can call functions after and before the element has reached the top, bottom, or while moving.
+
+```javascript
+  $("#follow-me").follow({
+    topStart: myFunction,
+    topEnd: myFunction,
+
+    bottomStart: myFunction,
+    bottomEnd: myFunction,
+
+    movingStart: myFunction
+    movingEnd: myFunction
+  });
+```
 ... where "my-container-name" is an **element ID** and is the container that **spans the entire height** of the area you want the element to follow you in.
+
+
+
+Todo
+----
+- Suggestions?

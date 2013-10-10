@@ -1,5 +1,5 @@
 /* jquery.divfollow
-   -- version 1.1
+   -- version 1.2
    -- http://anthonydrakefrost.com
 
    Feel free to do whatever you'd like with this code.
@@ -14,9 +14,12 @@
 
     var settings = $.extend({
         container: "container",
-        topCallback: function() {},
-        bottomCallback: function() {},
-        movingCallback: function() {}
+        topStart: function() {},
+        topEnd: function() {},
+        bottomStart: function() {},
+        bottomEnd: function() {},
+        movingStart: function() {},
+        movingEnd: function() {}
     }, options);
 
     return this.each(function() {
@@ -59,7 +62,7 @@
   function calculateScroll($mark, markDistanceFromPageTop, leeway, settings) {
     // get our current distance from the top and how far the element has moved already
     var viewportDistanceFromPageTop = $(window).scrollTop(),
-          currentPosition = parseInt($mark.css("margin-top"));
+        currentPosition = parseInt($mark.css("margin-top"), 10);
 
     // STEP ONE: determine if we've passed the mark
     if(viewportDistanceFromPageTop > markDistanceFromPageTop) {
@@ -69,19 +72,21 @@
 
       // STEP THREE: make sure it won't move out of the container
       if(amountToMove < leeway) {
-        settings.movingCallback();
-        $mark.stop().animate({"marginTop": amountToMove + "px"}, "slow");
+        settings.movingStart();
+        $mark.stop().animate({"marginTop": amountToMove + "px"}, "slow", settings.movingEnd);
       }
 
       // YES, we have touched the bottom
       else if(currentPosition !== leeway) {
-        $mark.stop().animate({"marginTop": leeway + "px"}, "slow", settings.bottomCallback);
+        settings.bottomStart();
+        $mark.stop().animate({"marginTop": leeway + "px"}, "slow", settings.bottomEnd);
       }
     }
 
     // NO, we haven't. Move the mark to the top if it's not already there
     else if(currentPosition !== 0) {
-      $mark.stop().animate({"marginTop": "0px"}, "slow", settings.topCallback);
+        settings.topStart();
+      $mark.stop().animate({"marginTop": "0px"}, "slow", settings.topEnd);
     }
   }
 }(jQuery));
