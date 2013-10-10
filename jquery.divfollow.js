@@ -13,7 +13,7 @@
   $.fn.follow = function(options) {
 
     var settings = $.extend({
-        container: "container",
+        container: "container"
     }, options);
 
     return this.each(function() {
@@ -25,7 +25,31 @@
           leeway = containerHeight - markHeight;
 
       calculateScroll($mark, markDistanceFromPageTop, leeway);
+
       $(window).scroll(function() { calculateScroll($mark, markDistanceFromPageTop, leeway); });
+
+      // recalculate everything
+      $(window).resize(function() {
+
+          // it's possible that when resizing
+          // the mark will push the container down, increasing its height
+          
+          // the fix is to temporarily move the mark to the top of container
+          // and then move it either back or to the bottom if it's too far
+          
+          var pastHeight = $mark.css("margin-top");
+          $mark.css("margin-top", "0px");
+
+          markDistanceFromPageTop = $container.offset().top;
+          markHeight = $mark.outerHeight();
+          containerHeight = $container.height();
+          leeway = containerHeight - markHeight;
+
+          if(pastHeight > leeway) $mark.css("margin-top", leeway);
+          else $mark.css("margin-top", pastHeight);
+
+          calculateScroll($mark, markDistanceFromPageTop, leeway);
+      });
     });
   };
 
