@@ -1,5 +1,5 @@
 /* jquery.divfollow
-   -- version 1.2
+   -- version 1.3
    -- http://anthonydrakefrost.com
 
    Feel free to do whatever you'd like with this code.
@@ -19,7 +19,8 @@
         bottomStart: function() {},
         bottomEnd: function() {},
         movingStart: function() {},
-        movingEnd: function() {}
+        movingEnd: function() {},
+        speed: 500
     }, options);
 
     return this.each(function() {
@@ -30,6 +31,7 @@
           containerHeight = $container.height(),
           leeway = containerHeight - markHeight;
 
+      
       calculateScroll($mark, markDistanceFromPageTop, leeway, settings);
 
       $(window).scroll(function() { calculateScroll($mark, markDistanceFromPageTop, leeway, settings); });
@@ -73,20 +75,20 @@
       // STEP THREE: make sure it won't move out of the container
       if(amountToMove < leeway) {
         settings.movingStart();
-        $mark.stop().animate({"marginTop": amountToMove + "px"}, "slow", settings.movingEnd);
+        $mark.stop().animate({"marginTop": amountToMove + "px"}, settings.speed, settings.movingEnd);
       }
 
       // YES, we have touched the bottom
       else if(currentPosition !== leeway) {
         settings.bottomStart();
-        $mark.stop().animate({"marginTop": leeway + "px"}, "slow", settings.bottomEnd);
+        $mark.stop().animate({"marginTop": leeway + "px"}, settings.speed, settings.bottomEnd);
       }
     }
 
     // NO, we haven't. Move the mark to the top if it's not already there
     else if(currentPosition !== 0) {
-        settings.topStart();
-      $mark.stop().animate({"marginTop": "0px"}, "slow", settings.topEnd);
+      settings.topStart();
+      $mark.stop().animate({"marginTop": "0px"}, settings.speed, settings.topEnd);
     }
   }
 }(jQuery));

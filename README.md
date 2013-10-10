@@ -69,7 +69,14 @@ You can call functions after and before the element has reached the top, bottom,
 ```
 ... where "my-container-name" is an **element ID** and is the container that **spans the entire height** of the area you want the element to follow you in.
 
+#### SPEED
+```javascript
+  $("#follow-me").follow({
+    speed: 500
+  });
+```
 
+The default speed is 500.
 
 Todo
 ----
