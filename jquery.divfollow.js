@@ -30,8 +30,7 @@
           markHeight = $mark.outerHeight(),
           containerHeight = $container.height(),
           leeway = containerHeight - markHeight;
-
-      
+          
       calculateScroll($mark, markDistanceFromPageTop, leeway, settings);
 
       $(window).scroll(function() { calculateScroll($mark, markDistanceFromPageTop, leeway, settings); });
