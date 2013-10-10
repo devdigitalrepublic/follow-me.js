@@ -45,7 +45,7 @@ This plugin assumes a two (or more) column setup. See the demo page if you need 
   $("#follow-me").follow();
 ```
 
-Make sure to include the name of your container if you've named it something other than "container".
+Make sure to include the name of your container if you've named it something other than "container". "my-container-name" must be an **element ID** and must be the container that **spans the entire height** of the area you want the element to follow you in.
 
 ```javascript
   $("#follow-me").follow({
@@ -67,7 +67,6 @@ You can call functions after and before the element has reached the top, bottom,
     movingEnd: myFunction
   });
 ```
-... where "my-container-name" is an **element ID** and is the container that **spans the entire height** of the area you want the element to follow you in.
 
 #### SPEED
 ```javascript
