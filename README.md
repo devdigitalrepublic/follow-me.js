@@ -80,4 +80,5 @@ The default speed is 500.
 
 Todo
 ----
+- When the page refreshes, keep the original position of the element without scrolling.
 - Suggestions?
