@@ -25,12 +25,12 @@ function startMoving() {
 $(document).ready(function() {
   $("#follow-me").follow({
     container: "example-container",
-    offset: 50,
+    offsetElement: "navigation",
     topStart: movingToTop,
     topEnd: hitTop,
     bottomStart: movingToBottom,
     bottomEnd: hitBottom,
     movingStart: startMoving,
-    movingEnd: endMoving
+    movingEnd: endMoving,
   });
 });

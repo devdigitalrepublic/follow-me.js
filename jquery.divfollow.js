@@ -18,7 +18,8 @@
         movingStart: function() {},
         movingEnd: function() {},
         speed: 500,
-        offset: 0
+        offset: 0,
+        offsetElement: ""
     }, options);
 
     return this.each(function() {
@@ -64,7 +65,7 @@
 
   function calculateScroll($mark, markDistanceFromPageTop, leeway, settings, moving) {
     // get our current distance from the top and how far the element has moved already
-    var viewportDistanceFromPageTop = $(window).scrollTop() + settings.offset,
+    var viewportDistanceFromPageTop = $(window).scrollTop() + (settings.offsetElement === "" ? settings.offset : $("#" + settings.offsetElement).height()),
         currentPosition = parseInt($mark.css("margin-top"), 10);
 
     // STEP ONE: determine if we've passed the mark
