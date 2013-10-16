@@ -83,9 +83,13 @@ The default speed is 500.
   $("#follow-me").follow({
     offset: 50
   });
+
+  $("#follow-me").follow({
+    offsetElement: "navigation"
+  });
 ```
 
-Specifying an offset can be useful if you have a fixed header or something blocking part of the screen. The default is 0.
+Specifying an offset can be useful if you have a fixed header or something blocking part of the screen. You can use a number or offset by the height of some element.
 
 Todo
 ----
