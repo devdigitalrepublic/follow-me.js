@@ -26,17 +26,13 @@
 
       var $container = $("#" + settings.container),
           $mark = $(this),
-          markDistanceFromPageTop = $container.offset().top,
-          markHeight = $mark.outerHeight(),
-          containerHeight = $container.height(),
-          leeway = containerHeight - markHeight,
 
           // keep track of whether we're already moving (used for callbacks)
           moving = [false, false, false];
           
-      moving = calculateScroll($mark, markDistanceFromPageTop, leeway, settings, moving);
+      moving = calculateScroll($mark, $container, settings, moving);
 
-      $(window).scroll(function() { calculateScroll($mark, markDistanceFromPageTop, leeway, settings, moving); });
+      $(window).scroll(function() { calculateScroll($mark, $container, settings, moving); });
 
       // recalculate everything
       $(window).resize(function() {
@@ -58,14 +54,21 @@
           if(pastHeight > leeway) $mark.css("margin-top", leeway);
           else $mark.css("margin-top", pastHeight);
 
-          moving = calculateScroll($mark, markDistanceFromPageTop, leeway, settings, moving);
+          moving = calculateScroll($mark, $container, settings, moving);
       });
     });
   };
 
-  function calculateScroll($mark, markDistanceFromPageTop, leeway, settings, moving) {
-    // get our current distance from the top and how far the element has moved already
-    var viewportDistanceFromPageTop = $(window).scrollTop() + (settings.offsetElement === "" ? settings.offset : $("#" + settings.offsetElement).height()),
+  function calculateScroll($mark, $container, settings, moving) {
+
+    // dynamically calculate this in case the mark or container changes size/place
+    var markDistanceFromPageTop = $container.offset().top,
+        markHeight = $mark.outerHeight(),
+        containerHeight = $container.height(),
+        leeway = containerHeight - markHeight,
+
+        // get our current distance from the top and how far the element has moved already
+        viewportDistanceFromPageTop = $(window).scrollTop() + (settings.offsetElement === "" ? settings.offset : $("#" + settings.offsetElement).height()),
         currentPosition = parseInt($mark.css("margin-top"), 10);
 
     // STEP ONE: determine if we've passed the mark
