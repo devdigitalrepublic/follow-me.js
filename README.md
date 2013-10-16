@@ -77,6 +77,16 @@ You can call functions after and before the element has reached the top, bottom,
 
 The default speed is 500.
 
+
+#### OFFSET
+```javascript
+  $("#follow-me").follow({
+    offset: 50
+  });
+```
+
+Specifying an offset can be useful if you have a fixed header or something blocking part of the screen. The default is 0.
+
 Todo
 ----
 - When the page refreshes, keep the original position of the element without scrolling.
