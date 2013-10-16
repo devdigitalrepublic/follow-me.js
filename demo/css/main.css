@@ -89,14 +89,69 @@ textarea {
 
 body {
     padding: 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: 'Open Sans', sans-serif;
+    background: #1abc9c;
 }
 
 h1 {
     text-align: right;
+    color: rgba(0, 0, 0, .4);
+}
+
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    font-size: 15px;
+    z-index: 999;
+}
+
+nav ul {
+    top: 75px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: right;
+}
+
+nav li {
+    padding: 0;
+    height: 50px;
+    width: 200px;
+    float: left;
+}
+
+nav a {
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1em;
+    text-decoration: none;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    padding: 0 10px;
+    width: 100%;
+}
+
+nav a:hover {
+    color: #1abc9c;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, .1);
+}
+
+
+#container {
+    margin-top: 60px;
 }
 
 #information-container {
-    width: 30%;
+    width: 20%;
     padding: 10px;
     float: left;
 }
@@ -104,11 +159,15 @@ h1 {
 #information {
     position: fixed;
     bottom: 50%;
+    color: white;
+    color: rgb(255,255,255);
+    color: rgba(255,255,255,0.7);
 }
 
-#container {
-    width: 50%;
-    border: 1px solid #333;
+#example-container {
+    width: 80%;
+    border: 3px solid rgb(44,44,44);
+    border: 3px solid rgba(0,0,0,0.3);
     padding: 10px;
     min-height: 2000px;
     margin-bottom: 1500px;
@@ -127,8 +186,12 @@ h1 {
 
 #follow-me {
     width: 100%;
-    border: 1px solid #333;
+    border: 3px solid rgb(44, 44, 44);
+    border: 3px solid rgba(0,0,0,0.3);
     padding: 20px;
+    color: rgb(0,0,0);
+    color: rgba(0,0,0,0.4);
+    text-align: center;
 }
 
 
