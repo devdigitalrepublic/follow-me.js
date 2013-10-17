@@ -93,5 +93,4 @@ Specifying an offset can be useful if you have a fixed header or something block
 
 Todo
 ----
-- When the page refreshes, keep the original position of the element without scrolling.
 - Suggestions?

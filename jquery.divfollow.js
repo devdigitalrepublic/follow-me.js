@@ -1,5 +1,5 @@
 /* jquery.divfollow
-   -- version 1.4
+   -- version 1.41
    -- http://github.com/lordkai/DivFollow
 
    Feel free to do whatever you'd like with this code.
@@ -30,9 +30,9 @@
           // keep track of whether we're already moving (used for callbacks)
           moving = [false, false, false];
           
-      moving = calculateScroll($mark, $container, settings, moving);
+      moving = calculateScroll($mark, $container, settings, moving, false);
 
-      $(window).scroll(function() { calculateScroll($mark, $container, settings, moving); });
+      $(window).scroll(function() { calculateScroll($mark, $container, settings, moving, true); });
 
       // recalculate everything
       $(window).resize(function() {
@@ -41,26 +41,18 @@
           // the mark will push the container down, increasing its height
           
           // the fix is to temporarily move the mark to the top of container
-          // and then move it either back or to the bottom if it's too far
+          // and then work from there
           
           var pastHeight = $mark.css("margin-top");
           $mark.css("margin-top", "0px");
 
-          markDistanceFromPageTop = $container.offset().top;
-          markHeight = $mark.outerHeight();
-          containerHeight = $container.height();
-          leeway = containerHeight - markHeight;
-
-          if(pastHeight > leeway) $mark.css("margin-top", leeway);
-          else $mark.css("margin-top", pastHeight);
-
-          moving = calculateScroll($mark, $container, settings, moving);
+          moving = calculateScroll($mark, $container, settings, moving, false);
       });
     });
   };
 
-  function calculateScroll($mark, $container, settings, moving) {
-
+  function calculateScroll($mark, $container, settings, moving, animate) {
+    console.log(animate);
     // dynamically calculate this in case the mark or container changes size/place
     var markDistanceFromPageTop = $container.offset().top,
         markHeight = $mark.outerHeight(),
@@ -86,14 +78,17 @@
           settings.movingStart();
         }
 
-        // resest flags after the animation ends
-        $mark.stop().animate({"marginTop": amountToMove + "px"},
-          settings.speed,
-          function() {
-            settings.movingEnd();
-            moving[0] = false; moving[1] = false; moving[2] = false;
-          }
-        );
+        if(animate) {
+          // resest flags after the animation ends
+          $mark.stop().animate({"marginTop": amountToMove + "px"},
+            settings.speed,
+            function() {
+              settings.movingEnd();
+              moving[0] = false; moving[1] = false; moving[2] = false;
+            }
+          );
+        }
+        else $mark.css("margin-top", amountToMove + "px");
       }
 
       // YES, we have touched the bottom
@@ -105,14 +100,17 @@
           settings.bottomStart();
         }
 
-        // resest flags after the animation ends
-        $mark.stop().animate({"marginTop": leeway + "px"},
-          settings.speed,
-          function() {
-            settings.bottomEnd();
-            moving[0] = false; moving[1] = false; moving[2] = false;
-          }
-        );
+        if(animate) {
+          // resest flags after the animation ends
+          $mark.stop().animate({"marginTop": leeway + "px"},
+            settings.speed,
+            function() {
+              settings.bottomEnd();
+              moving[0] = false; moving[1] = false; moving[2] = false;
+            }
+          );
+        }
+        else $mark.css("margin-top", leeway + "px");
       }
     }
 
@@ -125,14 +123,17 @@
         settings.topStart();
       }
 
-      // resest flags after the animation ends
-      $mark.stop().animate({"marginTop": "0px"},
-        settings.speed,
-        function() {
-          settings.topEnd();
-          moving[0] = false; moving[1] = false; moving[2] = false;
-        }
-      );
+      if(animate) {
+        // resest flags after the animation ends
+        $mark.stop().animate({"marginTop": "0px"},
+          settings.speed,
+          function() {
+            settings.topEnd();
+            moving[0] = false; moving[1] = false; moving[2] = false;
+          }
+        );
+      }
+      else $mark.css("margin-top", "0px");
     }
 
     return moving;
