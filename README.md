@@ -6,7 +6,7 @@ Makes an element follow the screen, but only within the bounds of some element.
 Usage Example
 ----
 
-This plugin assumes a two (or more) column setup. See the demo page if you need more help.
+This plugin assumes a two (or more) column setup. [See the demo page](http://korobu.com/DivFollow/demo/) if you need more help.
 
 #### HTML:
 ```html
