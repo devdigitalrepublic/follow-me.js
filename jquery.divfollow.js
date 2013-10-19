@@ -52,7 +52,6 @@
   };
 
   function calculateScroll($mark, $container, settings, moving, animate) {
-    console.log(animate);
     // dynamically calculate this in case the mark or container changes size/place
     var markDistanceFromPageTop = $container.offset().top,
         markHeight = $mark.outerHeight(),
