@@ -1,6 +1,6 @@
 /* jquery.divfollow
    -- version 1.5
-   -- http://github.com/lordkai/DivFollow
+   -- http://korobu.com/divfollow
 
    Feel free to do whatever you'd like with this code.
 */
