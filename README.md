@@ -13,7 +13,6 @@ This plugin assumes a two (or more) column setup. [See the demo page](http://kor
             I'm following you!
         </div>
     </div>
-
     <div id="left-column">
       Content
     </div>
