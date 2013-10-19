@@ -5,7 +5,7 @@ Makes an element follow the screen, but only within the bounds of some element.
 
 
 #### HTML
-I've envisoned the plugin being used in one of two ways. The first is in a two (or more) column setup, as outlined in the following two code blocks. [See the demo page](http://korobu.com/divfollow/demo/) if you need more help with this kind of setup.
+I've envisoned the plugin being used in one of two ways. The first is in a two (or more) column setup, as outlined in the following two code blocks. [See the demo page](http://korobu.com/teh-codez/divfollow/demo) if you need more help with this kind of setup.
 ```html
 <div id="container">
     <div id="right-column">
