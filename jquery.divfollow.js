@@ -1,5 +1,5 @@
 /* jquery.divfollow
-   -- version 1.42
+   -- version 1.5
    -- http://github.com/lordkai/DivFollow
 
    Feel free to do whatever you'd like with this code.
@@ -19,7 +19,9 @@
         movingEnd: function() {},
         speed: 500,
         offset: 0,
-        offsetElement: ""
+        offsetElement: "",
+        min: null,
+        max: null
     }, options);
 
     return this.each(function() {
@@ -55,6 +57,13 @@
   };
 
   function calculateScroll($mark, $container, markDistanceFromContainerTop, settings, moving, animate) {
+    
+    // don't do anything if wer'e at the disable limit
+    if((settings.min !== null && window.innerWidth <= settings.min) || (settings.max !== null && window.innerWidth >= settings.max)) {
+      $mark.css("margin-top", markDistanceFromContainerTop + "px");
+      return moving;
+    }
+
     // dynamically calculate this in case the mark or container changes size/place
     var containerDistanceFromPageTop = $container.offset().top,
         startScrolling = containerDistanceFromPageTop + markDistanceFromContainerTop,

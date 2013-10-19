@@ -94,6 +94,16 @@ $("#follow-me").follow({
 });
 ```
 
+#### MIN/MAX
+You can specify a minimum width and/or a maximum width. The element will remain in its original position if the screen width is above or below those values, respectively. The [korobu.com divfollow page](http://korobu.com/divfollow) does this so there is no movement for screen sizes below 700px as the animation can be a bit choppy on mobile devices.
+```javascript
+$("#follow-me").follow({
+  min: 700,
+  max: 2000
+});
+```
+
 Todo
 ----
+- CSS3 transitions with jQuery fallback
 - Suggestions?
