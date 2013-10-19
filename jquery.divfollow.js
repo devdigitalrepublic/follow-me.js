@@ -1,5 +1,5 @@
 /* jquery.divfollow
-   -- version 1.41
+   -- version 1.42
    -- http://github.com/lordkai/DivFollow
 
    Feel free to do whatever you'd like with this code.
@@ -27,12 +27,15 @@
       var $container = $("#" + settings.container),
           $mark = $(this),
 
+          // must calculate this only once since the mark's position will change
+          markDistanceFromContainerTop =  $mark.offset().top - $container.offset().top,
+
           // keep track of whether we're already moving (used for callbacks)
           moving = [false, false, false];
           
-      moving = calculateScroll($mark, $container, settings, moving, false);
+      moving = calculateScroll($mark, $container, markDistanceFromContainerTop, settings, moving, false);
 
-      $(window).scroll(function() { calculateScroll($mark, $container, settings, moving, true); });
+      $(window).scroll(function() { calculateScroll($mark, $container, markDistanceFromContainerTop, settings, moving, true); });
 
       // recalculate everything
       $(window).resize(function() {
@@ -46,14 +49,15 @@
           var pastHeight = $mark.css("margin-top");
           $mark.css("margin-top", "0px");
 
-          moving = calculateScroll($mark, $container, settings, moving, false);
+          moving = calculateScroll($mark, $container, markDistanceFromContainerTop, settings, moving, false);
       });
     });
   };
 
-  function calculateScroll($mark, $container, settings, moving, animate) {
+  function calculateScroll($mark, $container, markDistanceFromContainerTop, settings, moving, animate) {
     // dynamically calculate this in case the mark or container changes size/place
-    var markDistanceFromPageTop = $container.offset().top,
+    var containerDistanceFromPageTop = $container.offset().top,
+        startScrolling = containerDistanceFromPageTop + markDistanceFromContainerTop,
         markHeight = $mark.outerHeight(),
         containerHeight = $container.height(),
         leeway = containerHeight - markHeight,
@@ -63,10 +67,10 @@
         currentPosition = parseInt($mark.css("margin-top"), 10);
 
     // STEP ONE: determine if we've passed the mark
-    if(viewportDistanceFromPageTop > markDistanceFromPageTop) {
+    if(viewportDistanceFromPageTop > startScrolling) {
 
       // STEP TWO: determine how much to move the mark
-      var amountToMove = viewportDistanceFromPageTop - markDistanceFromPageTop;
+      var amountToMove = viewportDistanceFromPageTop - containerDistanceFromPageTop;
 
       // STEP THREE: make sure it won't move out of the container
       if(amountToMove < leeway) {
@@ -114,7 +118,7 @@
     }
 
     // NO, we haven't. Move the mark to the top if it's not already there
-    else if(currentPosition !== 0) {
+    else if(currentPosition !== markDistanceFromContainerTop) {
 
       // trigger move to top flag if we aren't already moving to the top
       if(!moving[2]) {
@@ -124,7 +128,7 @@
 
       if(animate) {
         // resest flags after the animation ends
-        $mark.stop().animate({"marginTop": "0px"},
+        $mark.stop().animate({"marginTop": markDistanceFromContainerTop + "px"},
           settings.speed,
           function() {
             settings.topEnd();
@@ -132,7 +136,7 @@
           }
         );
       }
-      else $mark.css("margin-top", "0px");
+      else $mark.css("margin-top", markDistanceFromContainerTop + "px");
     }
 
     return moving;

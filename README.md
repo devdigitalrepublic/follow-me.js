@@ -4,8 +4,8 @@ Div Follow
 Makes an element follow the screen, but only within the bounds of some element.
 
 
-#### HTML:
-This plugin assumes a two (or more) column setup. [See the demo page](http://korobu.com/divfollow/demo/) if you need more help.
+#### HTML
+I've envisoned the plugin being used in one of two ways. The first is in a two (or more) column setup, as outlined in the following two code blocks. [See the demo page](http://korobu.com/divfollow/demo/) if you need more help with this kind of setup.
 ```html
 <div id="container">
     <div id="right-column">
@@ -19,8 +19,8 @@ This plugin assumes a two (or more) column setup. [See the demo page](http://kor
 </div>
 ```
 
-#### CSS:
-Your setup may be quite different, but the idea is that there is content on one side of the page and something following you up/down on the other side of the page. Make sure your container has overflow:auto or that you have some sort of clearfix so it will properly span the height of its floating children.
+#### CSS
+Make sure your container has overflow:auto or that you have some sort of clearfix so it will properly span the height of its floating children.
 ```css
 #container {
   overflow: auto;
@@ -34,6 +34,14 @@ Your setup may be quite different, but the idea is that there is content on one 
 #right-column {
   width: 30%;
   float: right;
+}
+```
+
+#### The second way
+The second way I've envisoned this plugin being used is to have the following element on top of the content. In that case all you need is the following CSS. If you are viewing this on [korobu.com](http://korobu.com/divfollow) then you're already seeing a demo of this (the floating buttons at the top).
+```css
+#follow-me {
+  position: absolute;
 }
 ```
 
