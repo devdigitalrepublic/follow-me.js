@@ -95,7 +95,7 @@ $("#follow-me").follow({
 ```
 
 #### MIN/MAX
-You can specify a minimum width and/or a maximum width. The element will remain in its original position if the screen width is above or below those values, respectively. The [korobu.com divfollow page](http://korobu.com/divfollow) does this so there is no movement for screen sizes below 700px as the animation can be a bit choppy on mobile devices.
+You can specify a minimum width and a maximum width. The element won't follow the screen and will remain in its original position if the screen width is below or above those values, respectively. The [korobu.com divfollow page](http://korobu.com/divfollow) does this so there is no movement for screen widths below 700px.
 ```javascript
 $("#follow-me").follow({
   min: 700,
