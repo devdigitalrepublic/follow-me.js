@@ -5,7 +5,7 @@ Makes an element follow the screen, but only within the bounds of some element.
 
 
 #### HTML
-I've envisoned the plugin being used in one of two ways. The first is in a two (or more) column setup, as outlined in the following two code blocks. [See the demo page](http://korobu.com/teh-codez/divfollow/demo) if you need more help with this kind of setup.
+I've envisoned the plugin being used in one of two ways. The first is in a two (or more) column setup, as outlined in the following two code blocks. [See the demo page](https://0x0049.github.io/divfollow/) if you need more help with this kind of setup.
 ```html
 <div id="container">
     <div id="right-column">
@@ -38,7 +38,7 @@ Make sure your container has overflow:auto or that you have some sort of clearfi
 ```
 
 #### The second way
-The second way I've envisoned this plugin being used is to have the following element on top of the content. In that case all you need is the following CSS. If you are viewing this on [korobu.com](http://korobu.com/divfollow) then you're already seeing a demo of this (the floating buttons at the top).
+The second way I've envisoned this plugin being used is to have the following element on top of the content. In that case all you need is the following CSS.
 ```css
 #follow-me {
   position: absolute;
@@ -95,7 +95,7 @@ $("#follow-me").follow({
 ```
 
 #### MIN/MAX
-You can specify a minimum width and a maximum width. The element won't follow the screen and will remain in its original position if the screen width is below or above those values, respectively. The [korobu.com divfollow page](http://korobu.com/divfollow) does this so there is no movement for screen widths below 700px.
+You can specify a minimum width and a maximum width. The element won't follow the screen and will remain in its original position if the screen width is below or above those values, respectively.
 ```javascript
 $("#follow-me").follow({
   min: 700,
