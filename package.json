@@ -1,0 +1,29 @@
+{
+	"name": "follow-me",
+	"version": "1.0.0",
+	"description": "Makes an element follow you as you scroll, but only within the bounds of another element.",
+	"author": "0x0049 <dev@0x0049.me>",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/0x0049/follow-me"
+	},
+	"bugs": {
+		"url": "https://github.com/0x0049/follow-me/issues"
+	},
+	"keywords": [
+		"jquery",
+		"follow",
+		"scroll"
+	],
+	"devDependencies": {
+		"jshint": "2.8.0",
+		"uglify-js": "2.4.24"
+	},
+	"scripts": {
+		"prebuild": "jshint --config .jshintrc jquery.follow-me.js",
+		"build": "uglifyjs jquery.follow-me.js --output jquery.follow-me.min.js --compress --mangle",
+		"postbuild": "echo \"/* jquery.follow-me.min.js | 0x0049 | https://www.0x0049.me/follow-me/ | MIT license */\" | cat - jquery.follow-me.min.js > temp && mv temp jquery.follow-me.min.js"
+	},
+	"analyze": true,
+	"license": "MIT"
+}

@@ -1,6 +1,7 @@
-/* jquery.divfollow
+/* jquery.follow-me.js
 	 -- version 1.51
-	 -- http://korobu.com/divfollow
+	 -- 0x0049
+	 -- https://www.0x0049.me/follow-me/
 
 	 Feel free to do whatever you'd like with this code.
 */
@@ -10,7 +11,7 @@
 	$.fn.follow = function(options) {
 
 		var settings = $.extend({
-				container: "container",
+				container: 'container',
 				topStart: function() {},
 				topEnd: function() {},
 				bottomStart: function() {},
@@ -19,14 +20,14 @@
 				movingEnd: function() {},
 				speed: 500,
 				offset: 0,
-				offsetElement: "",
+				offsetElement: '',
 				min: null,
 				max: null
 		}, options);
 
 		return this.each(function() {
 
-			var $container = $("#" + settings.container),
+			var $container = $('#' + settings.container),
 					$mark = $(this),
 
 					// must calculate this only once since the mark's position will change
@@ -48,8 +49,8 @@
 					// the fix is to temporarily move the mark to the top of container
 					// and then work from there
 
-					var pastHeight = $mark.css("margin-top");
-					$mark.css("margin-top", "0px");
+					//var pastHeight = $mark.css('margin-top');
+					$mark.css('margin-top', '0px');
 
 					moving = calculateScroll($mark, $container, markDistanceFromContainerTop, settings, moving, false);
 			});
@@ -61,7 +62,7 @@
 		// don't do anything if we're at the disable limit, or if the browser is shorter than the mark
 		var markHeight = $mark.outerHeight();
 		if((settings.min !== null && window.innerWidth <= settings.min) || (settings.max !== null && window.innerWidth >= settings.max) || (window.innerHeight <= markHeight)) {
-			$mark.css("margin-top", markDistanceFromContainerTop + "px");
+			$mark.css('margin-top', markDistanceFromContainerTop + 'px');
 			return moving;
 		}
 
@@ -72,8 +73,8 @@
 				leeway = containerHeight - markHeight,
 
 				// get our current distance from the top and how far the element has moved already
-				viewportDistanceFromPageTop = $(window).scrollTop() + (settings.offsetElement === "" ? settings.offset : $("#" + settings.offsetElement).height()),
-				currentPosition = parseInt($mark.css("margin-top"), 10);
+				viewportDistanceFromPageTop = $(window).scrollTop() + (settings.offsetElement === '' ? settings.offset : $('#' + settings.offsetElement).height()),
+				currentPosition = parseInt($mark.css('margin-top'), 10);
 
 		// STEP ONE: determine if we've passed the mark
 		if(viewportDistanceFromPageTop > startScrolling) {
@@ -92,7 +93,7 @@
 
 				if(animate) {
 					// resest flags after the animation ends
-					$mark.stop().animate({"marginTop": amountToMove + "px"},
+					$mark.stop().animate({'marginTop': amountToMove + 'px'},
 						settings.speed,
 						function() {
 							settings.movingEnd();
@@ -100,7 +101,9 @@
 						}
 					);
 				}
-				else $mark.css("margin-top", amountToMove + "px");
+				else {
+					$mark.css('margin-top', amountToMove + 'px');
+				}
 			}
 
 			// YES, we have touched the bottom
@@ -114,7 +117,7 @@
 
 				if(animate) {
 					// resest flags after the animation ends
-					$mark.stop().animate({"marginTop": leeway + "px"},
+					$mark.stop().animate({'marginTop': leeway + 'px'},
 						settings.speed,
 						function() {
 							settings.bottomEnd();
@@ -122,7 +125,9 @@
 						}
 					);
 				}
-				else $mark.css("margin-top", leeway + "px");
+				else {
+					$mark.css('margin-top', leeway + 'px');
+				}
 			}
 		}
 
@@ -137,7 +142,7 @@
 
 			if(animate) {
 				// resest flags after the animation ends
-				$mark.stop().animate({"marginTop": markDistanceFromContainerTop + "px"},
+				$mark.stop().animate({'marginTop': markDistanceFromContainerTop + 'px'},
 					settings.speed,
 					function() {
 						settings.topEnd();
@@ -145,7 +150,9 @@
 					}
 				);
 			}
-			else $mark.css("margin-top", markDistanceFromContainerTop + "px");
+			else {
+				$mark.css('margin-top', markDistanceFromContainerTop + 'px');
+			}
 		}
 
 		return moving;

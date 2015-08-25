@@ -1,11 +1,11 @@
-Div Follow
-===========
+Follow Me
+=========
 
-Makes an element follow the screen, but only within the bounds of some element.
+Makes an element follow you as you scroll, but only within the bounds of some element.
 
 
 #### HTML
-I've envisoned the plugin being used in one of two ways. The first is in a two (or more) column setup, as outlined in the following two code blocks. [See the demo page](https://0x0049.github.io/divfollow/) if you need more help with this kind of setup.
+I've envisioned the plugin being used in one of two ways. The first is in a two (or more) column setup, as outlined in the following two code blocks. [See the demo page](https://0x0049.github.io/divfollow/) if you need more help with this kind of setup.
 ```html
 <div id="container">
     <div id="right-column">
