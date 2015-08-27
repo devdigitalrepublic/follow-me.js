@@ -5,7 +5,7 @@ Makes an element follow you within the bounds of a container as you scroll.
 
 
 #### HTML
-I've envisioned the plugin being used in one of two ways. The first is in a two (or more) column setup, as outlined in the following two code blocks. [See the demo page](https://0x0049.github.io/follow-me/) if you need more help with this kind of setup.
+I've envisioned the plugin being used in one of two ways. The first is in a two (or more) column setup, as outlined in the following two code blocks. [See the demo page](https://www.0x0049.io/follow-me.js/demo/) if you need more help with this kind of setup.
 ```html
 <div id="container">
     <div id="right-column">
