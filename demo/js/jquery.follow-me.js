@@ -35,21 +35,20 @@
 
 	// Avoid Plugin.prototype conflicts.
 	$.extend(Plugin.prototype, {
-		 calculateScroll: function (animate) {
-			 // Lets us reference 'this', the plugin, when it would otherwise mean something else.
-			 var plugin = this;
+		calculateScroll: function (animate) {
+			// Lets us reference 'this', the plugin, when it would otherwise mean something else.
+			var plugin = this;
 
 			// Don't do anything if we're at the disable limit, or if the browser is shorter than the mark.
 			var markHeight = plugin.$mark.outerHeight();
 			if((plugin.settings.min !== null && window.innerWidth <= plugin.settings.min) || (plugin.settings.max !== null && window.innerWidth >= plugin.settings.max) || (window.innerHeight <= markHeight)) {
-				plugin.$mark.css('margin-top', plugin.markDistanceFromContainerTop + 'px');
+				plugin.$mark.css('margin-top', '0px');
 			}
 
-			// Dynamically calculate this in case the mark or container changes size/place.
-			var containerDistanceFromPageTop = plugin.$container.offset().top;
-			var startScrolling = containerDistanceFromPageTop + plugin.markDistanceFromContainerTop;
-			var containerHeight = plugin.$container.height();
-			var leeway = containerHeight - markHeight;
+			// Dynamically calculate the leeway in case the mark or container changes size/place.
+			// The leeway is how much the mark can move within the container.
+			var startScrolling = plugin.$container.offset().top;
+			var leeway = plugin.$container.height() - markHeight;
 
 			// Get our current distance from the top and how far the element has moved already.
 			var viewportDistanceFromPageTop = $(window).scrollTop() + (plugin.settings.offsetElement === null ? plugin.settings.offset : $('#' + plugin.settings.offsetElement).height());
@@ -59,7 +58,7 @@
 			if(viewportDistanceFromPageTop > startScrolling) {
 
 				// STEP TWO: Determine how much to move the mark.
-				var amountToMove = viewportDistanceFromPageTop - containerDistanceFromPageTop;
+				var amountToMove = viewportDistanceFromPageTop - startScrolling;
 
 				// STEP THREE: Make sure it won't move out of the container.
 				if(amountToMove < leeway) {
@@ -85,7 +84,7 @@
 					}
 				}
 
-				// YES, we have touched the bottom.
+				// YES, we would move out of the container. Move the mark to the bottom if it's not already there.
 				else if(currentPosition !== leeway) {
 
 					// Trigger move to bottom if we aren't already moving to the bottom.
@@ -111,7 +110,7 @@
 			}
 
 			// NO, we haven't passed the mark. Move the mark to the top if it's not already there.
-			else if(currentPosition !== plugin.markDistanceFromContainerTop) {
+			else if(currentPosition !== 0) {
 
 				// Trigger move to top flag if we aren't already moving to the top.
 				if(!plugin.moving[2]) {
@@ -121,7 +120,7 @@
 
 				if(animate) {
 					// Reset flags after the animation ends.
-					plugin.$mark.stop().animate({'marginTop': plugin.markDistanceFromContainerTop + 'px'},
+					plugin.$mark.stop().animate({'marginTop': '0px'},
 						plugin.settings.speed,
 						function() {
 							plugin.settings.topEnd();
@@ -130,7 +129,7 @@
 					);
 				}
 				else {
-					plugin.$mark.css('margin-top', plugin.markDistanceFromContainerTop + 'px');
+					plugin.$mark.css('margin-top', '0px');
 				}
 			}
 		},
@@ -140,9 +139,6 @@
 			var plugin = this;
 
 			plugin.$container = $('#' + plugin.settings.container);
-
-			// We must calculate this only once since the mark's position will change.
-			plugin.markDistanceFromContainerTop =  plugin.$mark.offset().top - plugin.$container.offset().top;
 
 			// Keep track of whether we're already moving (used for callbacks).
 			plugin.moving = [false, false, false];

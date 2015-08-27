@@ -24,6 +24,7 @@ function startMoving() {
 
 $(document).ready(function() {
 	$("#follow-me").follow({
+		container: 'demo',
 		topStart: movingToTop,
 		topEnd: hitTop,
 		bottomStart: movingToBottom,
