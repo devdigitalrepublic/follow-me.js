@@ -1,7 +1,7 @@
 Follow Me
 =========
 
-Makes an element follow you as you scroll, but only within the bounds of some element.
+Makes an element follow you within the bounds of a container as you scroll.
 
 
 #### HTML
