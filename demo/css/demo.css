@@ -76,11 +76,21 @@ a:hover, a:focus {
 	border-color: #F55753;
 }
 
-/* Author. */
+/* Code block. */
 code {
 	background: #fafafa;
 	padding: 3px 5px;
 	border: 1px solid #ccc;
+}
+
+/* Links with code blocks and smaller text. */
+code a {
+	margin: 0;
+	font-size: 14px;
+}
+
+code {
+ font-size: 14px;
 }
 
 /* Callback container. */
