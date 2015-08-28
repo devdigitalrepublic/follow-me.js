@@ -1,5 +1,5 @@
-Follow Me
-=========
+follow-me.js
+============
 
 Makes an element follow you within the bounds of a container as you scroll.
 
