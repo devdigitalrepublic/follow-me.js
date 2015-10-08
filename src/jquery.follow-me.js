@@ -42,7 +42,8 @@
 			// Don't do anything if we're at the disable limit, or if the browser is shorter than the mark.
 			var markHeight = plugin.$mark.outerHeight();
 			if((plugin.settings.min !== null && window.innerWidth <= plugin.settings.min) || (plugin.settings.max !== null && window.innerWidth >= plugin.settings.max) || (window.innerHeight <= markHeight)) {
-				plugin.$mark.css('margin-top', '0px');
+				plugin.$mark.removeAttr('style');
+				return;
 			}
 
 			// Dynamically calculate the leeway in case the mark or container changes size/place.
