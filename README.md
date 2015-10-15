@@ -37,7 +37,7 @@ Make sure your container has overflow:auto or that you have some sort of clearfi
 }
 ```
 
-#### The second way
+#### THE SECOND WAY
 The second way I've envisoned this plugin being used is to have the following element on top of the content. In that case all you need is the following CSS.
 ```css
 #follow-me {
