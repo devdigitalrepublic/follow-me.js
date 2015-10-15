@@ -42,6 +42,8 @@ h4 {
 	font-size: 24px;
 	color: #dc9656;
 	font-weight: 700;
+	margin-bottom: 0;
+	border-bottom: 1px solid #dc9656;
 }
 
 .demo {
