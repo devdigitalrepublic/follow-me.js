@@ -43,7 +43,6 @@ h4 {
 	color: #dc9656;
 	font-weight: 700;
 	margin-bottom: 0;
-	border-bottom: 1px solid #dc9656;
 }
 
 .demo {
@@ -99,19 +98,9 @@ a:hover, a:focus {
 
 /* Code block. */
 code {
-	background: #fafafa;
-	padding: 3px 5px;
-	border: 1px solid #ccc;
-}
-
-/* Links with code blocks and smaller text. */
-code a {
-	margin: 0;
-	font-size: 14px;
-}
-
-code {
- font-size: 14px;
+	border: 6px solid #1f1f1f;
+	font-size: 16px;
+	padding: 15px 10px !important;
 }
 
 /* Callback container. */
