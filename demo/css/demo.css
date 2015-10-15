@@ -79,6 +79,7 @@ h4:after {
 	text-align: center;
 	font-weight: 300;
 	margin: 15px 0;
+	padding: 0 10px;
 }
 
 /* Paragraphs. */
@@ -112,13 +113,22 @@ a:hover, a:focus {
 .button {
 	border: 1px solid #dc9656;
 	border-radius: 3px;
-	margin: 5px;
 	padding: 8px 5px;
-	width: 150px;
-	display: inline-block;
+	display: block;
 	transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 	font-size: 18px;
 	line-height: 100%;
+	width: 100%;
+	text-align: center;
+	margin: 5px 0;
+}
+
+@media (min-width: 365px) {
+	.button {
+		display: inline-block;
+		max-width: 150px;
+		margin: 5px;
+	}
 }
 
 .button:hover, .button:focus {
@@ -130,8 +140,14 @@ a:hover, a:focus {
 .right {
 	position: absolute;
 	right: 10px;
-	top: 10px;
+	top: -54px;
 	text-align: right;
+}
+
+@media (min-width: 660px) {
+	.right {
+		top: 10px;
+	}
 }
 
 .right a {
@@ -151,9 +167,15 @@ code {
 #callbacks {
 	width: 250px;
 	position: fixed;
-	bottom: 60px;
+	bottom: 95px;
 	left: 10px;
 	color: #aaa;
+}
+
+@media (min-width: 365px) {
+	#callbacks {
+		bottom: 55px;
+	}
 }
 
 #callbacks h2 {
