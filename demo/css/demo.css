@@ -120,15 +120,31 @@ a:hover, a:focus {
 	line-height: 100%;
 	width: 100%;
 	text-align: center;
+}
+
+.button-container {
 	margin: 5px 0;
 }
 
-@media (min-width: 365px) {
+@media (min-width: 300px) {
+	.button-container {
+		width: 50%;
+		padding: 0 5px;
+		float: left;
+	}
+
 	.button {
 		display: inline-block;
 		max-width: 150px;
-		margin: 5px;
 	}
+
+	.github {
+		text-align: right;
+	}
+
+  .npm {
+	  text-align: left;
+  }
 }
 
 .button:hover, .button:focus {
@@ -172,7 +188,7 @@ code {
 	color: #aaa;
 }
 
-@media (min-width: 365px) {
+@media (min-width: 300px) {
 	#callbacks {
 		bottom: 55px;
 	}
