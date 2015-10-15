@@ -176,6 +176,9 @@ a:hover, a:focus {
 	margin: 3px 0;
 	border-right: 1px solid #7f4a1a;
 	padding: 1px 4px;
+	background: transparent;
+	border-top-left-radius: 1px;
+	border-bottom-left-radius: 1px;
 	transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 }
 
