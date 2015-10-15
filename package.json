@@ -1,6 +1,6 @@
 {
   "name": "follow-me-js",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Makes an element follow you as you scroll, but only within the bounds of another element.",
   "author": "0x0049 <dev@0x0049.me> (https://www.0x0049.me)",
   "repository": {
