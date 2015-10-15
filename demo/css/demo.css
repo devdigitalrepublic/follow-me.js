@@ -15,10 +15,12 @@
 }
 
 body {
-	font-family: "Open Sans", sans-serif;
+	font-family: "Source Sans Pro", sans-serif;
 	font-weight: 300;
-	background-color: #f1f1f1;
+	background-color: #282828;
 	margin-bottom: 100px;
+	color: #888;
+	font-size: 22px;
 }
 
 .wrap {
@@ -31,49 +33,66 @@ h1 {
 	text-transform: uppercase;
 	margin-bottom: 5px;
 	margin-top: 30px;
-	color: #444;
-	font-size: 40px;
+	font-size: 45px;
+	color: #dc9656;
+	font-weight: 700;
+}
+
+h4 {
+	font-size: 24px;
+	color: #dc9656;
+	font-weight: 700;
 }
 
 .demo {
-	color: #ccc;
-	font-size: 30px;
-	border-right: solid 3px #ccc;
+	font-size: 35px;
+	border-right: solid 3px #191919;
 	margin-right: 15px;
+	color: #191919;
 }
 
 .subtitle {
 	text-align: center;
 	font-weight: 300;
-	color: #888;
-	margin-bottom: 15px;
-	font-size: 20px;
+	margin: 15px 0;
 }
 
 /* Paragraphs. */
 p {
 	font-weight: 300;
-	color: #444;
 }
 
 /* Links. */
 .links {
 	text-align: center;
-	margin-bottom: 30px;
+	margin: 30px 0;
 }
 
 a {
-	color: #888;
 	text-decoration: none;
-	border-bottom: 1px dotted #888;
-	margin: 0 10px;
+	border-bottom: 1px dotted #dc9656;
 	font-weight: 300;
-	font-size: 18px;
+	color: #dc9656;
 }
 
 a:hover, a:focus {
-	color: #F55753;
-	border-color: #F55753;
+	color: #a1b56c;
+	border-color: #a1b56c;
+}
+
+.links a {
+	border: 1px solid #dc9656;
+	border-radius: 3px;
+	margin: 5px;
+	padding: 5px;
+	width: 150px;
+	display: inline-block;
+	transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+}
+
+.links a:hover, .links a:focus {
+	background-color: #dc9656;
+	color: #181818;
 }
 
 /* Code block. */
@@ -102,13 +121,18 @@ code {
 	color: #aaa;
 }
 
+#callbacks h2 {
+	font-size: 20px;
+}
+
 #callback-output {
 	color: #888;
+	font-size: 16px;
 }
 
 /* Demo container. */
 #demo {
-	border: 3px solid #ccc;
+	border: 3px solid #181818;
 	padding: 0 10px;
 	margin-bottom: 100%;
 }
@@ -121,11 +145,11 @@ code {
 #left-column {
 	width: 70%;
 	float: right;
-	padding: 10px;
+	padding: 10px 10px 10px 0;
 }
 
 #left-column .inner {
-	background-color: #eaeaea;
+	background-color: #181818;
 	min-height: 2000px;
 }
 
@@ -135,7 +159,9 @@ code {
 
 #follow-me .inner {
 	text-align: center;
-	color: #888;
-	border: 3px solid #ccc;
+	border: 3px solid #181818;
+	background-color: #222;
 	padding: 20px;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+	font-size: 16px;
 }
