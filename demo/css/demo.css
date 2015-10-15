@@ -26,6 +26,12 @@ body {
 .wrap {
 	max-width: 1100px;
 	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+
+.wrap p:nth-child(2) {
+	text-align: center;
 }
 
 h1 {
@@ -39,10 +45,27 @@ h1 {
 }
 
 h4 {
-	font-size: 24px;
-	color: #dc9656;
-	font-weight: 700;
+	font-size: 22px;
 	margin-bottom: 0;
+	position: relative;
+	margin-top: 80px;
+	line-height: 100%;
+	font-weight: 900;
+	background-color: #dc9656;
+	color: #282828;
+	display: inline-block;
+	padding: 7px 15px;
+}
+
+h4:after {
+	content: "";
+	position: absolute;
+	background-color: #dc9656;
+	height: 1px;
+	width: 100%;
+	left: 0;
+	display: block;
+	margin-top: 7px;
 }
 
 .demo {
