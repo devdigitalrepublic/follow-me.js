@@ -158,13 +158,13 @@ a:hover, a:focus {
 .right {
 	position: absolute;
 	right: 10px;
-	top: -54px;
+	top: -56px;
 	text-align: right;
 }
 
 @media (min-width: 660px) {
 	.right {
-		top: 10px;
+		top: 8px;
 	}
 }
 
@@ -172,6 +172,17 @@ a:hover, a:focus {
 	font-size: 12px;
 	display: block;
 	border: none;
+	line-height: 100%;
+	margin: 3px 0;
+	border-right: 1px solid #7f4a1a;
+	padding: 1px 4px;
+	transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+}
+
+.right a:hover, .right a:focus {
+	background-color: #dc9656;
+	color: #111;
+	border-right: 1px solid #7f4a1a;
 }
 
 /* Code block. */
