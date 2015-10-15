@@ -28,6 +28,7 @@ body {
 	margin: 0 auto;
 	position: relative;
 	overflow: hidden;
+	padding: 0 10px;
 }
 
 .wrap p:nth-child(2) {
@@ -85,10 +86,15 @@ p {
 	font-weight: 300;
 }
 
-/* Links. */
-.links {
+.links-bar {
+	background: #111;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 1;
+	width: 100%;
 	text-align: center;
-	margin: 30px 0;
+	padding: 10px;
 }
 
 a {
@@ -103,19 +109,35 @@ a:hover, a:focus {
 	border-color: #a1b56c;
 }
 
-.links a {
+.button {
 	border: 1px solid #dc9656;
 	border-radius: 3px;
 	margin: 5px;
-	padding: 5px;
+	padding: 8px 5px;
 	width: 150px;
 	display: inline-block;
 	transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+	font-size: 18px;
+	line-height: 100%;
 }
 
-.links a:hover, .links a:focus {
+.button:hover, .button:focus {
 	background-color: #dc9656;
+	border-color: #dc9656;
 	color: #181818;
+}
+
+.right {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	text-align: right;
+}
+
+.right a {
+	font-size: 12px;
+	display: block;
+	border: none;
 }
 
 /* Code block. */
@@ -129,7 +151,7 @@ code {
 #callbacks {
 	width: 250px;
 	position: fixed;
-	bottom: 10px;
+	bottom: 60px;
 	left: 10px;
 	color: #aaa;
 }
