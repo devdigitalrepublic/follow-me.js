@@ -158,13 +158,13 @@ a:hover, a:focus {
 .right {
 	position: absolute;
 	right: 10px;
-	top: -56px;
+	top: -57px;
 	text-align: right;
 }
 
 @media (min-width: 660px) {
 	.right {
-		top: 8px;
+		top: 7px;
 	}
 }
 
