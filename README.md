@@ -46,7 +46,7 @@ The second way I've envisoned this plugin being used is to have the following el
 ```
 
 #### JAVASCRIPT
-This is the simplest way to use divfollow in your project.
+This is the simplest way to use follow-me.js in your project.
 ```javascript
 $("#follow-me").follow();
 ```
