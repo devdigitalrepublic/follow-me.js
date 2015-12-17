@@ -1,3 +1,4 @@
+/* jquery.follow-me.min.js 1.0.12 | 0x0049 | http://0x0049.link/followmejs | MIT license */
 /* global jQuery */
 ;(function ($, window) {
 
