@@ -7,5 +7,4 @@ npm-debug.log
 node_modules
 
 # On the server - displays the readme.
-Parsedown.php
 index.php
