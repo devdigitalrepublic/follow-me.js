@@ -1,39 +1,39 @@
 {
-	"name": "follow-me.js",
-	"version": "1.0.12",
-	"description": "Makes an element follow you as you scroll, but only within the bounds of another element.",
-	"author": "0x0049 <dev@0x0049.me> (https://www.0x0049.me)",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/0x0049/follow-me"
-	},
-	"bugs": {
-		"url": "https://github.com/0x0049/follow-me/issues"
-	},
-	"keywords": [
-		"ecosystem:jquery",
-		"jquery",
-		"jquery-plugin",
-		"javascript",
-		"browser",
-		"follow",
-		"scroll"
-	],
-	"devDependencies": {
-		"jshint": "2.8.x",
-		"uglify-js": "2.4.x"
-	},
-	"scripts": {
-		"jshint": "jshint --config .jshintrc src/jquery.follow-me.js",
-		"prebuild": "npm run jshint && mkdir -p dist",
-		"build": "uglifyjs src/jquery.follow-me.js --output dist/jquery.follow-me.min.js --compress --mangle && cp src/jquery.follow-me.js dist/jquery.follow-me.js",
-		"postbuild": "npm run banner:min && npm run banner:full",
-		"banner:min": "echo \"/* jquery.follow-me.min.js $npm_package_version | 0x0049 | http://0x0049.link/followmejs | MIT license */\" | cat - dist/jquery.follow-me.min.js > temp && mv temp dist/jquery.follow-me.min.js",
-		"banner:full": "echo \"/* jquery.follow-me.min.js $npm_package_version | 0x0049 | http://0x0049.link/followmejs | MIT license */\" | cat - dist/jquery.follow-me.js > temp && mv temp dist/jquery.follow-me.js",
-		"preversion": "npm run jshint",
-		"version": "npm run build && git add -A dist",
-		"postversion": "git push && git push --tags"
-	},
-	"analyze": true,
-	"license": "MIT"
+  "name": "follow-me.js",
+  "version": "1.0.13",
+  "description": "Makes an element follow you as you scroll, but only within the bounds of another element.",
+  "author": "0x0049 <dev@0x0049.me> (https://www.0x0049.me)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0x0049/follow-me"
+  },
+  "bugs": {
+    "url": "https://github.com/0x0049/follow-me/issues"
+  },
+  "keywords": [
+    "ecosystem:jquery",
+    "jquery",
+    "jquery-plugin",
+    "javascript",
+    "browser",
+    "follow",
+    "scroll"
+  ],
+  "devDependencies": {
+    "jshint": "2.8.x",
+    "uglify-js": "2.4.x"
+  },
+  "scripts": {
+    "jshint": "jshint --config .jshintrc src/jquery.follow-me.js",
+    "prebuild": "npm run jshint && mkdir -p dist",
+    "build": "uglifyjs src/jquery.follow-me.js --output dist/jquery.follow-me.min.js --compress --mangle && cp src/jquery.follow-me.js dist/jquery.follow-me.js",
+    "postbuild": "npm run banner:min && npm run banner:full",
+    "banner:min": "echo \"/* jquery.follow-me.min.js $npm_package_version | 0x0049 | http://0x0049.link/followmejs | MIT license */\" | cat - dist/jquery.follow-me.min.js > temp && mv temp dist/jquery.follow-me.min.js",
+    "banner:full": "echo \"/* jquery.follow-me.min.js $npm_package_version | 0x0049 | http://0x0049.link/followmejs | MIT license */\" | cat - dist/jquery.follow-me.js > temp && mv temp dist/jquery.follow-me.js",
+    "preversion": "npm run jshint",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --tags"
+  },
+  "analyze": true,
+  "license": "MIT"
 }
