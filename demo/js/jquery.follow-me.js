@@ -1,11 +1,3 @@
-/* jquery.follow-me.js
-	 -- version 1.51
-	 -- 0x0049
-	 -- https://www.0x0049.me/follow-me/
-
-	 Feel free to do whatever you'd like with this code.
-*/
-
 /* global jQuery */
 ;(function ($, window) {
 

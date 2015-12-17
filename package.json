@@ -25,8 +25,8 @@
   },
   "scripts": {
     "prebuild": "jshint --config .jshintrc src/jquery.follow-me.js && mkdir -p dist",
-    "build": "uglifyjs src/jquery.follow-me.js --output dist/jquery.follow-me.min.js --compress --mangle",
-    "postbuild": "echo \"/* jquery.follow-me.min.js | 0x0049 | https://www.0x0049.me/follow-me/ | MIT license */\" | cat - dist/jquery.follow-me.min.js > temp && mv temp dist/jquery.follow-me.min.js && cp src/jquery.follow-me.js demo/js/jquery.follow-me.js"
+    "build": "uglifyjs src/jquery.follow-me.js --output dist/jquery.follow-me.min.js --compress --mangle && cp src/jquery.follow-me.js dist/jquery.follow-me.js",
+    "postbuild": "echo \"/* jquery.follow-me.min.js | 0x0049 | http://0x0049.link/followmejs | MIT license */\" | cat - dist/jquery.follow-me.min.js > temp && mv temp dist/jquery.follow-me.min.js && cp src/jquery.follow-me.js demo/js/jquery.follow-me.js"
   },
   "analyze": true,
   "license": "MIT"
