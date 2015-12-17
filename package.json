@@ -31,7 +31,7 @@
     "banner:min": "echo \"/* jquery.follow-me.min.js $npm_package_version | 0x0049 | http://0x0049.link/followmejs | MIT license */\" | cat - dist/jquery.follow-me.min.js > temp && mv temp dist/jquery.follow-me.min.js",
     "banner:full": "echo \"/* jquery.follow-me.js $npm_package_version | 0x0049 | http://0x0049.link/followmejs | MIT license */\" | cat - dist/jquery.follow-me.js > temp && mv temp dist/jquery.follow-me.js",
     "preversion": "npm run jshint",
-    "version": "npm run build && git add -A dist",
+    "version": "npm run build && git add -A dist && git add demo/js/jquery.follow-me.js",
     "postversion": "git push && git push --tags"
   },
   "analyze": true,
