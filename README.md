@@ -29,7 +29,7 @@ $('#follow-me').follow({
 });
 ```
 
-| Option          | Value   | Default     | Description                                             |
+| Option          | Type    | Default     | Description                                             |
 |-----------------|---------|-------------|---------------------------------------------------------|
 | `container`     | String  | `container` | ID of the containing element.                           |
 | `speed`         | Integer | `500`       | Animation speed in milliseconds.                        |
