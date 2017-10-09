@@ -4,7 +4,7 @@ Makes an element follow you within the bounds of a container as you scroll.
 Activate follow-me.js using `$('#follow-me').follow()`.
 
 ```html
-<div class="follow-container container">
+<div id="container" class="follow-container">
   <div id="follow-me" class="follow">
   </div>
 </div>
