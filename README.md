@@ -1,11 +1,11 @@
 Makes an element follow you within the bounds of a container as you scroll.
 
 ## Usage
-You can activate follow-me.js on any element.
+Activate follow-me.js using `$('#follow-me').follow()`.
 
 ```html
-<div class="container">
-  <div id="follow-me">
+<div class="follow-container container">
+  <div id="follow-me" class="follow">
   </div>
 </div>
 ```
